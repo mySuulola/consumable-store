@@ -4,6 +4,8 @@ const User = mongoose.model("User");
 const multer = require("multer");
 const jimp = require("jimp");
 const uuid = require("uuid");
+const promisify = require('es6-promisify')
+
 
 const multerOptions = {
   storage: multer.memoryStorage(),
