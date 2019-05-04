@@ -52,8 +52,8 @@ router.get("/register", catchErrors(userController.registerForm));
 
 router.post(
   "/register",
-  userController.validateRegister,
-  userController.register,
+  catchErrors(userController.validateRegister),
+  catchErrors(userController.register),
   authController.login
 );
 
@@ -71,11 +71,10 @@ router.post(
   authController.isLoggedIn,
   catchErrors(reviewController.addReview)
 );
-router.get('/top', catchErrors(storeController.getTopStores) )
+router.get("/top", catchErrors(storeController.getTopStores));
 
 router.get("/api/search", catchErrors(storeController.searchStores));
 router.get("/api/stores/near", catchErrors(storeController.mapStores));
 router.post("/api/stores/:id/heart", catchErrors(storeController.heartStore));
-
 
 module.exports = router;
