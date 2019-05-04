@@ -9,7 +9,6 @@ exports.registerForm = async (req, res) => {
   res.render("register", { title: "Register" });
 };
 
-
 exports.validateRegister = async (req, res, next) => {
   req.sanitizeBody("name"); //from expressValidator middleware
   req.checkBody("name", "You must supply a name").notEmpty();
